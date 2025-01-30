@@ -9,9 +9,12 @@
   <script>
     // Get the current path (without the domain)
     var currentPath = window.location.pathname;
-    
-    // Redirect to the same path on the new domain
-    window.location.replace("https://a-star100.github.io" + currentPath);
+
+    // If the path is the root ("/"), append nothing to the new domain
+    var redirectUrl = currentPath === "/" ? "https://a-star100.github.io" : "https://a-star100.github.io" + currentPath;
+
+    // Redirect to the new URL
+    window.location.replace(redirectUrl);
   </script>
 </body>
 </html>
